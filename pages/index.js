@@ -6,6 +6,7 @@ export default function Home() {
   const auth = useAuth()
   console.log('logging', auth?.user?.email)
 
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,6 +27,7 @@ export default function Home() {
         ) : (
           <button onClick={() => auth.signinWithGithub()}>Sign in</button>
         )}
+
       </main>
 
       <footer className={styles.footer}>
