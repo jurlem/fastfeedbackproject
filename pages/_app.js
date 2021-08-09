@@ -1,5 +1,5 @@
 import { AuthProvider } from "@/lib/auth"
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 
 import { ChakraProvider } from "@chakra-ui/react"
 import custumeTheme from '@/styles/theme';
