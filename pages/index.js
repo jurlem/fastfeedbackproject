@@ -4,12 +4,13 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const auth = useAuth()
-  console.log('logging', auth?.user)
+  console.log('logging', auth?.user?.email)
+
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Fast Feedback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -19,12 +20,13 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          Current user: <code className={styles.code}>{auth.user ? auth.user.email : null}</code>
         </p>
-        <button onClick={() => auth.signinWithGithub()}>Sign in</button>
-        <div>{auth?.user?.email}</div>
-        {auth?.user && <button onClick={() => auth.signout()}>Sign out</button>}
+        {auth.user ? (
+          <button onClick={() => auth.signout()}>Sign out</button>
+        ) : (
+          <button onClick={() => auth.signinWithGithub()}>Sign in</button>
+        )}
 
       </main>
 
