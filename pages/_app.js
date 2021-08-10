@@ -36,7 +36,6 @@ const App = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </AuthProvider>
     </ChakraProvider>
-
   )
 }
 
