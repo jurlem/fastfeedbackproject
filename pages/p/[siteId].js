@@ -18,7 +18,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       initialFeedback: feedback
-    }
+    },
+    revalidate: 1
   }
 }
 
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
   const paths = sites.map(site => ({
     params: {
       siteId: site.id.toString()
-    }
+    },
   }))
 
   return {

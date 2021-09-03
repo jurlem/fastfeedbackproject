@@ -6,7 +6,7 @@ import { useAuth } from '@/lib/auth';
 import SiteTableHeader from './SiteTableHeader';
 
 const DashboardShell = ({ children }) => {
-  const { user } = useAuth();
+  const { user, signout } = useAuth();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
