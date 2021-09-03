@@ -9,7 +9,13 @@ export default function Home() {
   return (
     <Flex as="main" direction="column" align="center" justify="center" h="100vh">
       <Head>
-        Fast Feedback
+        <title>Fast Feedback</title>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
+            window.location.href = "/dashboard"
+          }
+        ` }} />
       </Head>
       <Icon viewBox="0 0 46 32" boxSize={12}>
         <path
