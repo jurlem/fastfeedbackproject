@@ -13,8 +13,6 @@ const myTheme = {
     medium: 600,
     bold: 800
   },
-
-
   icons: {
     ...chakraTheme.icons,
     logo: {
