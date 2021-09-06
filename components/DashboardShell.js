@@ -35,7 +35,7 @@ const DashboardShell = ({ children }) => {
                 />
               </Icon>
             </NextLink>
-            <NextLink href="/sites" passHref>
+            <NextLink href="/dashboard" passHref>
               <Link mr={4}>Sites</Link>
             </NextLink>
             <NextLink href="/feedback" passHref>
@@ -57,7 +57,6 @@ const DashboardShell = ({ children }) => {
         </Flex>
       </Flex>
       <Flex margin="0 auto" direction="column" maxW="1250px" px={[0, 8, 8]}>
-        <SiteTableHeader />
         {children}
       </Flex>
     </Box>
