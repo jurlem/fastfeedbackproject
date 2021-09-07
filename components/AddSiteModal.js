@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { useForm } from "react-hook-form";
-import useSWR, { mutate } from 'swr';
-import fetcher from '@/utils/fetcher';
+import { mutate } from 'swr';
 
 import {
   Button,
@@ -19,7 +18,6 @@ import {
   useToast
 } from "@chakra-ui/react"
 
-
 import { createSite } from '@/lib/firestore';
 import { useAuth } from '@/lib/auth';
 
@@ -33,14 +31,12 @@ const AddSiteModal = ({ children }) => {
 
 
   const onCreateSite = ({ name, url }) => {
-
     const newSite = {
       authorId: auth.user.uid,
       createdAt: new Date().toISOString(),
       name,
       url
     }
-
     const { id } = createSite(newSite)
 
     toast({
@@ -56,7 +52,6 @@ const AddSiteModal = ({ children }) => {
       }, false)
     onClose()
   }
-
   return (
     <>
       <Button
