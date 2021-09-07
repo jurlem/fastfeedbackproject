@@ -7,7 +7,6 @@ export default function Home() {
   const auth = useAuth()
 
   return (
-
     <Box bg="gray.100" py={16} px={4}>
       <Flex as="main" direction="column" align="center" maxW="640px" margin="0 auto" justify="center" h="100vh">
         <Head>
