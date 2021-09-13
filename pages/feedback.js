@@ -9,9 +9,11 @@ import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackTableHeader from '@/components/FeedbackTableHeader';
 
 const MyFeedback = () => {
+
   const { user } = useAuth()
   const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher)
-  console.log(data)
+
+
   const feedback = data?.feedback
 
   if (!data) {

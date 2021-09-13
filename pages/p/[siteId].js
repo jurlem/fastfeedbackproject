@@ -33,7 +33,8 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: true
+    // fallback true -> otherwise static gen fails to display a new site created after buildtime
   };
 }
 
@@ -55,7 +56,8 @@ const SiteFeedback = ({ initialFeedback }) => {
       provider: auth.user.provider,
       status: 'pending'
     }
-
+    // Clears up input field after comment is sumbitted:
+    inputEl.current.value = ""
     createFeedback(newFeedback)
     setAllFeedback([newFeedback, ...allFeedback])
   }
@@ -65,11 +67,11 @@ const SiteFeedback = ({ initialFeedback }) => {
       <FormControl my={8} id="comment" >
         <FormLabel>Comment</FormLabel>
         <Input ref={inputEl} type="comment" />
-        <Button mt={2} type='submit' fontWeight='medium'>Add Comments</Button>
+        <Button mt={2} type='submit' fontWeight='medium' isDisabled={router.isFallback}>Add Comments</Button>
       </FormControl>
     </Box>
 
-    {allFeedback.map(feedback => (
+    {allFeedback && allFeedback.map(feedback => (
       <Feedback key={feedback.id} {...feedback} />
     ))}
   </Box>
