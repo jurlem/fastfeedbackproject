@@ -9,8 +9,7 @@ import DeleteFeedbackButton from './DeleteFeedbackButton';
 
 const FeedbackTable = ({ allFeedback }) => {
   const router = useRouter()
-  // const xxx = router.query.,
-  //   console.log({ xxx })
+
 
   return (
     <Box overflowX="scroll">

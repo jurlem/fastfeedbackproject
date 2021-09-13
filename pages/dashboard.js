@@ -12,7 +12,7 @@ import SiteTableHeader from '@/components/SiteTableHeader';
 export default function Dashboard() {
   const { user } = useAuth()
   const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher)
-  console.log(data)
+
   const sites = data?.sites
 
   if (!data) {
