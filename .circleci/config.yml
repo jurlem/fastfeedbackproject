@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs: 
+  lint:
+    docker:
+      -image: circleci/node:lts
+    steps:
+      -checkout
+      -run:
+        name: Install dependencies
+        command: yarn install
+      -run:
+        name: Lint checks
+        command: yarn lint
+
+
+workflows:
+    jobs:
+      lint
