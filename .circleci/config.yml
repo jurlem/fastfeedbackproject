@@ -10,9 +10,6 @@ jobs:
          name: Nodejs version
          command: node --version
       - run:
-         name: Install dependencies
-         command: yarn install
-      - run:
          name: Lint checks
          command: yarn run lint
 
