@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs: 
+  lint:
+    docker:
+      - image: cimg/node:14.10.1
+    steps:
+      - checkout
+      - run: 
+         name: Nodejs version
+         command: node --version
+      - run:
+         name: Lint checks
+         command: yarn run lint
+
+workflows:
+ version: 2
+ test:
+    jobs:
+      - lint
