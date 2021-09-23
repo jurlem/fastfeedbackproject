@@ -9,18 +9,18 @@ jobs:
       - run: 
          name: Nodejs version
          command: node --version
-       - run:
+      - run:
          name: Installing dependencies
          command: yarn install
-        - run:
+      - run:
          name: Build
          command: yarn build
       - run: 
-          name: Build docker image
-          command: docker build -t fastfeedback:test 
+         name: Build docker image
+         command: docker build -t fastfeedback:test 
       - run:
-          name: Push docker image
-          command: docker push fastfeedback:test
+         name: Push docker image
+         command: docker push fastfeedback:test
               echo "Pushed production image to docker hub"
            
          
