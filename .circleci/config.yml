@@ -9,9 +9,7 @@ jobs:
       - run: 
          name: Nodejs version
          command: node --version
-      - run:
-         name: Build 
-         command: yarn build
+
 
 workflows:
  version: 2
