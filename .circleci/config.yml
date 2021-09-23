@@ -3,12 +3,27 @@ version: 2.1
 jobs: 
   lint:
     docker:
-      - image: cimg/node:14.10.1
+      - image: circleci/node:14.15.5
     steps:
       - checkout
       - run: 
          name: Nodejs version
          command: node --version
+       - run:
+         name: Installing dependencies
+         command: yarn install
+        - run:
+         name: Build
+         command: yarn build
+      - run: 
+          name: Build docker image
+          command: docker build -t fastfeedback:test 
+      - run:
+          name: Push docker image
+          command: docker push fastfeedback:test
+              echo "Pushed production image to docker hub"
+           
+         
 
 
 workflows:
