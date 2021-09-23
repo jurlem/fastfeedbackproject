@@ -10,8 +10,8 @@ jobs:
          name: Nodejs version
          command: node --version
       - run:
-         name: Lint checks
-         command: yarn run lint
+         name: Install dep 
+         command: yarn install
 
 workflows:
  version: 2
