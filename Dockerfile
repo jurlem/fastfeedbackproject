@@ -3,6 +3,6 @@ LABEL maintainer="Fastfeedback"
 COPY . /
 WORKDIR /
 RUN pwd
-RUN yarn install
+RUN yarn
 RUN yarn build
 CMD ["yarn", "start"]
