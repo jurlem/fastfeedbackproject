@@ -10,8 +10,8 @@ jobs:
          name: Nodejs version
          command: node --version
       - run:
-         name: Install dep 
-         command: yarn install
+         name: Build 
+         command: yarn build
 
 workflows:
  version: 2
