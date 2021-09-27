@@ -17,10 +17,10 @@ jobs:
          command: yarn build
       - run: 
          name: Build docker image
-         command: docker build -t fastfeedback:test 
+         command: docker build -t jurlem/fastfeedback:latest
       - run:
          name: Push docker image
-         command: docker push fastfeedback:test
+         command: docker push jurlem/fastfeedback:latest
               echo "Pushed production image to docker hub"
            
          
