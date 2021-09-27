@@ -14,7 +14,7 @@ jobs:
          command: yarn install
       - run: 
          name: Build docker image
-         command: docker build -t jurlem/fastfeedback:latest
+         command: docker build -t jurlem/fastfeedback .
       - run:
          name: Push docker image
          command: docker push jurlem/fastfeedback:latest
