@@ -6,6 +6,8 @@ jobs:
       - image: circleci/node:14.15.5
     steps:
       - checkout
+      - setup_remote_docker:
+         version: 19.03.13
       - run: 
          name: Nodejs version
          command: node --version
