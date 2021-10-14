@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
 
 import { useAuth } from '@/lib/auth';
 import fetcher from '@/utils/fetcher';
@@ -8,32 +9,34 @@ import EmptyState from '@/components/EmptyState';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackTableHeader from '@/components/FeedbackTableHeader';
+import SiteFeedbackTableHeader from '@/components/SiteFeedbackTableHeader';
 
-const AllFeedback = () => {
+const SiteFeedback = () => {
 
   const { user } = useAuth()
-  const { data } = useSWR(user ? ['/api/feedback', user.token] : null, fetcher)
-
+  const router = useRouter()
+  const { siteId } = router.query
+  const { data } = useSWR(user ? [`/api/feedback/${siteId}`, user.token] : null, fetcher)
 
   const feedback = data?.feedback
 
   if (!data) {
     return <DashboardShell>
-      <FeedbackTableHeader />
+      <SiteFeedbackTableHeader />
       <SiteTableSkeleton />
     </DashboardShell>
   }
 
   return <DashboardShell>
-    <FeedbackTableHeader />
+    <SiteFeedbackTableHeader siteName={data.site.name} />
     {feedback?.length ? <FeedbackTable allFeedback={feedback} /> : <EmptyState />}
   </DashboardShell>
 }
 
-const AllFeedbackPage = () => (
-  <Page name="All Feedback" path="/feedback">
-    <AllFeedback />
+const SiteFeedbackPage = () => (
+  <Page name="Name of the Site Feedback" path="/feedback">
+    <SiteFeedback />
   </Page>
 );
 
-export default AllFeedbackPage;
+export default SiteFeedbackPage;

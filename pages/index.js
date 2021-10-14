@@ -31,7 +31,7 @@ export default function Home({ allFeedback, site }) {
             <script dangerouslySetInnerHTML={{
               __html: `
           if (document.cookie && document.cookie.includes('fast-feedback-auth')) {
-            window.location.href = "/dashboard"
+            window.location.href = "/sites"
           }
         ` }} />
           </Head>
@@ -58,7 +58,7 @@ export default function Home({ allFeedback, site }) {
 
           {auth.user ? (
             <>
-              <Button as='a' size='sm' fontWeight="medium" href="/dashboard">Viev Dashboard</Button>
+              <Button as='a' size='sm' fontWeight="medium" href="/sites">Viev Dashboard</Button>
               {/* <Button onClick={() => auth.signout()}>Sign out</Button> */}
             </>
           ) : (

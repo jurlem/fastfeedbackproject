@@ -24,8 +24,8 @@ const SiteTable = ({ sites }) => {
             <Box as="tr" key={site.id}>
               <Td>
                 <NextLink
-                  href="/p/[siteId]"
-                  as={`/p/${site.id}`}
+                  href="/site/[siteId]"
+                  as={`/site/${site.id}`}
                   passHref
                 >
                   <Link id={`site-table-link-${index}`} fontWeight="medium">
@@ -40,8 +40,8 @@ const SiteTable = ({ sites }) => {
               </Td>
               <Td>
                 <NextLink
-                  href="/p/[siteId]"
-                  as={`/p/${site.id}`}
+                  href="/feedback/[siteId]"
+                  as={`/feedback/${site.id}`}
                   passHref
                 >
                   <Link color="blue.500" fontWeight="medium">

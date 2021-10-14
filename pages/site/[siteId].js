@@ -11,6 +11,7 @@ import Feedback from '@/components/Feedback';
 import { useAuth } from "@/lib/auth";
 import { getAllFeedback, getAllSites } from "@/lib/firestore-admin";
 import { createFeedback } from "@/lib/firestore";
+import DashboardShell from '@/components/DashboardShell';
 
 export async function getStaticProps(context) {
   const siteId = context.params.siteId
@@ -62,19 +63,22 @@ const SiteFeedback = ({ initialFeedback }) => {
     setAllFeedback([newFeedback, ...allFeedback])
   }
 
-  return (<Box display="flex" flexDirection='column' width='full' maxWidth='700px' margin='0 auto'>
-    <Box as='form' onSubmit={onSubmit}>
-      <FormControl my={8} id="comment" >
-        <FormLabel>Comment</FormLabel>
-        <Input ref={inputEl} type="comment" />
-        <Button mt={2} type='submit' fontWeight='medium' isDisabled={router.isFallback}>Add Comments</Button>
-      </FormControl>
-    </Box>
+  return (
+    <DashboardShell>
+      <Box display="flex" flexDirection='column' width='full' maxWidth='700px' margin='0 auto'>
+        <Box as='form' onSubmit={onSubmit}>
+          <FormControl my={8} id="comment" >
+            <FormLabel>Comment</FormLabel>
+            <Input ref={inputEl} type="comment" />
+            <Button mt={2} type='submit' fontWeight='medium' isDisabled={router.isFallback}>Add Comments</Button>
+          </FormControl>
+        </Box>
 
-    {allFeedback && allFeedback.map(feedback => (
-      <Feedback key={feedback.id} {...feedback} />
-    ))}
-  </Box>
+        {allFeedback && allFeedback.map(feedback => (
+          <Feedback key={feedback.id} {...feedback} />
+        ))}
+      </Box>
+    </DashboardShell>
   )
 }
 export default SiteFeedback
