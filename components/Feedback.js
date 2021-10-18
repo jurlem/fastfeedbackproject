@@ -3,11 +3,11 @@ import { Box, Heading, Text, Divider, Icon, Flex, Code } from '@chakra-ui/react'
 import { format, parseISO } from 'date-fns';
 // import ReactMarkdown from 'react-markdown';
 
-// import { useTheme } from '@/utils/useTheme';
+import { useTheme } from '@/utils/useTheme';
 // import MDXComponents from './MDXComponents';
 
 const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
-  // const colorMode = useTheme();
+  const colorMode = useTheme();
   const authorColor = {
     light: 'gray.900',
     dark: 'gray.200'
@@ -28,22 +28,22 @@ const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
           size="sm"
           as="h3"
           mb={0}
-          // color={authorColor[colorMode]}
+          color={authorColor[colorMode]}
           fontWeight="medium"
         >
           {author}
         </Heading>
-        {/* {settings?.icons && (
+        {settings?.icons && (
           <Icon name={provider.slice(0, -4)} size="13px" ml="6px" />
-        )} */}
+        )}
       </Flex>
-      {/* {settings?.timestamp && ( */}
-      <Text color="gray.500" mb={4} fontSize="xs">
-        {format(parseISO(createdAt), 'PPpp')}
-      </Text>
-      {/* )} */}
+      {settings?.timestamp && (
+        <Text color="gray.500" mb={4} fontSize="xs">
+          {format(parseISO(createdAt), 'PPpp')}
+        </Text>
+      )}
       <Box
-      // color={textColor[colorMode]}
+        color={textColor[colorMode]}
       >
         {text}
         {/* <ReactMarkdown
@@ -70,7 +70,7 @@ const Feedback = ({ author, text, createdAt, provider, isLast, settings }) => {
       </Box>
       {!isLast && (
         <Divider
-          // borderColor={dividerColor[colorMode]} 
+          borderColor={dividerColor[colorMode]}
           mt={6} mb={6} />
       )}
     </Box>

@@ -4,7 +4,7 @@ import { Box, Link } from '@chakra-ui/react';
 import { parseISO, format } from 'date-fns';
 
 import { Table, Tr, Th, Td } from './Table';
-// import DeleteSiteButton from './DeleteSiteButton';
+import DeleteSiteButton from './DeleteSiteButton';
 
 const SiteTable = ({ sites }) => {
   return (
@@ -16,7 +16,7 @@ const SiteTable = ({ sites }) => {
             <Th>Site Link</Th>
             <Th>Feedback Link</Th>
             <Th>Date Added</Th>
-            <Th width="50px">{''}</Th>
+            <Th width="50px"></Th>
           </Tr>
         </thead>
         <tbody>
@@ -51,7 +51,7 @@ const SiteTable = ({ sites }) => {
               </Td>
               <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
               <Td>
-                {/* <DeleteSiteButton siteId={site.id} /> */}
+                <DeleteSiteButton siteId={site.id} />
               </Td>
             </Box>
           ))}
