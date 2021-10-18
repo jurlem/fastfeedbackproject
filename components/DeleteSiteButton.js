@@ -11,19 +11,19 @@ import { IconButton, Button } from '@chakra-ui/react';
 import { DeleteIcon, } from '@chakra-ui/icons';
 
 import { useAuth } from '@/lib/auth';
-import { deleteFeedback } from '@/lib/firestore'
+import { deleteSite } from '@/lib/firestore'
 import { mutate } from 'swr';
 
-const DeleteFeedbackButton = ({ feedbackId }) => {
+const DeleteSiteButton = ({ siteId }) => {
   const auth = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const onClose = () => setIsOpen(false)
 
   const onDelete = () => {
-    deleteFeedback(feedbackId)
-    mutate(['/api/feedback', auth.user.token],
+    deleteSite(siteId)
+    mutate(['/api/sites', auth.user.token],
       async (data) => {
-        return { feedback: data.feedback.filter(feedback => feedback.id !== feedbackId) }
+        return { sites: data.sites.filter(site => site.id !== siteId) }
       }, false)
     onClose()
   }
@@ -33,7 +33,7 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
       {/* <Button onClick={onOpen}>Open Modal</Button> */}
       <IconButton
         onClick={() => setIsOpen(true)}
-        aria-label="Delete feedback"
+        aria-label="Delete site"
         icon={<DeleteIcon />}
         variant="ghost">
       </IconButton>
@@ -50,14 +50,16 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Are you sure? You can't undo this action afterwards.
+              Are you sure?
+              All feedbacks related to the site will be deleted.
+              You can't undo this action afterwards.
             </AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>
                 Cancel
               </Button>
-              <Button fotWeight="bold" colorScheme="red" onClick={onDelete} ml={3}>
+              <Button fontWeight='bold' colorScheme="red" onClick={onDelete} ml={3}>
                 Delete
               </Button>
             </AlertDialogFooter>
@@ -67,5 +69,5 @@ const DeleteFeedbackButton = ({ feedbackId }) => {
     </>
   )
 }
-export default DeleteFeedbackButton
+export default DeleteSiteButton
 

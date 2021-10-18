@@ -7,7 +7,7 @@ import FeedbackLink from '@/components/FeedbackLink';
 
 // const SITE_ID = process.env.NEXT_PUBLIC_HOME_PAGE_SITE_ID;
 const SITE_ID = 'E78rATSjJqRxg29SfIin';
-console.log(SITE_ID)
+// console.log(SITE_ID)
 export async function getStaticProps(context) {
   const { feedback } = await getAllFeedback(SITE_ID);
   const { site } = await getSite(SITE_ID);

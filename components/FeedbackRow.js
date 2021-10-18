@@ -10,7 +10,7 @@ import DeleteFeedbackButton from './DeleteFeedbackButton';
 import { useAuth } from '@/lib/auth';
 // import DeleteSiteButton from './DeleteSiteButton';
 
-const FeedbackRow = ({ feedback: { id, author, text, status } }) => {
+const FeedbackRow = ({ feedback: { id, author, text, route, status } }) => {
   const auth = useAuth()
   const [checked, setChecked] = useState(status === 'active');
   const router = useRouter()
@@ -34,7 +34,7 @@ const FeedbackRow = ({ feedback: { id, author, text, status } }) => {
       </Td>
       <Td>
         <Code>
-          {router.route}
+          {route || '/'}
         </Code>
       </Td>
       <Td>

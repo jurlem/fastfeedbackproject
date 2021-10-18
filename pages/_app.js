@@ -1,6 +1,7 @@
 import { AuthProvider } from "@/lib/auth"
 import { Global, css } from '@emotion/react';
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 import { ChakraProvider } from "@chakra-ui/react"
 import SEO from '../next-seo.config';
 
@@ -9,6 +10,9 @@ import custumeTheme from '@/styles/theme';
 
 const GlobalStyle = ({ children }) => (
   <>
+    <Head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+    </Head>
     <Global
       styles={css`
         // ::selection {
