@@ -28,7 +28,7 @@ const SiteFeedback = () => {
   }
 
   return <DashboardShell>
-    <SiteFeedbackTableHeader siteName={data.site.name} />
+    <SiteFeedbackTableHeader siteName={data.site?.name} />
     {feedback?.length ? <FeedbackTable allFeedback={feedback} /> : <EmptyState />}
   </DashboardShell>
 }

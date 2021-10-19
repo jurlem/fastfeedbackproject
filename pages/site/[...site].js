@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 import { useRouter } from 'next/router'
 import {
-  Box, Button, FormControl, FormLabel, Textarea,
-  Input,
+  Box, Button, FormControl, Textarea,
 } from "@chakra-ui/react"
 import useSWR, { mutate } from 'swr';
 
